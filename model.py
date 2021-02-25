@@ -546,7 +546,8 @@ class Generator(nn.Module):
 
             latent = torch.cat([latent, latent2], 1)
 
-        out = self.input(latent)
+        #out = self.input(latent) # Repeats learned constant over batch size from latent
+        out = inp # Replace learned constant with input features
         out = self.conv1(out, latent[:, 0], noise=noise[0])
 
         skip = self.to_rgb1(out, latent[:, 1])
