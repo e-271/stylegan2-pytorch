@@ -508,7 +508,7 @@ class Generator(nn.Module):
         randomize_noise=True,
     ):
         if not input_is_latent: 
-            styles = [self.style(s) for s in styles]
+            styles = [self.style(s) for s in styles] # assumes a list of z inputs because style mixing input is [z1, z2]
 
         if noise is None:
             if randomize_noise:
